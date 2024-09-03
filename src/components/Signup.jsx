@@ -34,12 +34,11 @@ const Signup = () => {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
     axios
       .post("https://localhost:7247/api/Register/Consumer", values)
       .then((res) => alert(res.data))
       .catch((err) => alert("Some Error occured Try after some time"));
-      event.target.reset();
+    event.target.reset();
   };
   const [showPassword, setShowPassword] = React.useState(false);
 
