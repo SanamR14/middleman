@@ -23,9 +23,9 @@ const Signup = () => {
   // const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')
   const [values, setValues] = useState({
-    u_name: "",
-    u_email: "",
-    u_password: "",
+    // u_name: "",
+    Username: "",
+    U_password: "",
   });
 
   const handleInput = (event) => {
@@ -36,9 +36,10 @@ const Signup = () => {
     event.preventDefault();
     console.log(values);
     axios
-      .post("http://localhost:8081/register", values)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .post("https://localhost:7247/api/Register/Consumer", values)
+      .then((res) => alert(res.data))
+      .catch((err) => alert("Some Error occured Try after some time"));
+      event.target.reset();
   };
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -67,7 +68,6 @@ const Signup = () => {
                     id="name"
                     label="Name"
                     variant="outlined"
-                    name="u_name"
                     onChange={handleInput}
                   />
                 </FormControl>
@@ -82,7 +82,7 @@ const Signup = () => {
                     id="email"
                     label="Email"
                     variant="outlined"
-                    name="u_email"
+                    name="Username"
                     onChange={handleInput}
                   />
                 </FormControl>
@@ -110,7 +110,7 @@ const Signup = () => {
                       </InputAdornment>
                     }
                     label="Password"
-                    name="u_password"
+                    name="U_password"
                     onChange={handleInput}
                   />
                 </FormControl>
